@@ -21,8 +21,6 @@ def download(url, params):
         response = session.get(url).text
         final= re.findall(r'content="https://scontent-bom1-1.cdninstagram.com/v/(.*?)[\"\']',response)[-1]
         print('https://scontent-bom1-1.cdninstagram.com/v/'+final)
-        # print(response)
-        import requests
         r = requests.get('https://scontent-bom1-1.cdninstagram.com/v/'+final, stream=True)
         with open(params, "wb") as f:
             for c in r.iter_content(chunk_size=1024 * 1024):
