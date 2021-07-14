@@ -1,7 +1,9 @@
-def download(url,params):
-    import requests
-    import re
-    from requests_html import HTMLSession
+import re
+import requests
+from requests_html import HTMLSession
+
+
+def download(url, params):
     try:
         params=str(params)
         verify=re.findall(r"(?i)\b((?:https?://|www\d{0,3}[.]|[a-z0-9.\-]+[.][a-z]{2,4}/)(?:[^\s()<>]+|\(([^\s()<>]+|(\([^\s()<>]+\)))*\))+(?:\(([^\s()<>]+|(\([^\s()<>]+\)))*\)|[^\s`!()\[\]{};:'\".,<>?«»“”‘’]))",url)
