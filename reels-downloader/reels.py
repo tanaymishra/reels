@@ -31,6 +31,6 @@ def download(url, params):
 
 
     except requests.exceptions.RequestException as e:
-        raise str(e)
+        raise RuntimeError(str(e))
 if __name__ == '__main__':
     download('https://www.instagram.com/p/CK1uKLVJMkC/?utm_source=ig_web_copy_link','video.mp4')
