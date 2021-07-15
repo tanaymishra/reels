@@ -23,9 +23,9 @@ def download(url, params):
         print('https://scontent-bom1-1.cdninstagram.com/v/'+final)
         r = requests.get('https://scontent-bom1-1.cdninstagram.com/v/'+final, stream=True)
         with open(params, "wb") as f:
-            for c in r.iter_content(chunk_size=1024 * 1024):
-                if c:
-                    f.write(c)
+            for chunk in r.iter_content(chunk_size=1024 * 1024):
+                if chunk:
+                    f.write(chunk)
                     if __name__ == '__main__':
                         print("Done")
 
