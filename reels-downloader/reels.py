@@ -7,8 +7,8 @@ def download(url, params):
     try:
         params=str(params)
         verify=re.findall(r"(?i)\b((?:https?://|www\d{0,3}[.]|[a-z0-9.\-]+[.][a-z]{2,4}/)(?:[^\s()<>]+|\(([^\s()<>]+|(\([^\s()<>]+\)))*\))+(?:\(([^\s()<>]+|(\([^\s()<>]+\)))*\)|[^\s`!()\[\]{};:'\".,<>?«»“”‘’]))",url)
-    except:
-        return ValueError("Invalid params!")
+    except Exception:
+        raise ValueError("Invalid params!")
     if __name__ == '__main__':
         print(verify)
     if verify[0][0]==url:
