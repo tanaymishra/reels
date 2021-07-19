@@ -39,5 +39,12 @@ def shortcode(url):
     return url.split('/p/')[1].split('/')[0]
 
 
+def make_name(url):
+    code = shortcode(url)
+    if code:
+        return code + '.mp4'
+    return 'video.mp4'
+
+
 if __name__ == '__main__':
     download('https://www.instagram.com/p/CK1uKLVJMkC/?utm_source=ig_web_copy_link','video.mp4')
