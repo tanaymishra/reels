@@ -53,5 +53,17 @@ def clean_name(name):
     return name
 
 
+def download_many(urls, folder='.'):
+    import os
+    if folder and not os.path.exists(folder):
+        os.makedirs(folder)
+    saved = []
+    for u in urls:
+        path = os.path.join(folder, clean_name(make_name(u)))
+        download(u, path)
+        saved.append(path)
+    return saved
+
+
 if __name__ == '__main__':
     download('https://www.instagram.com/p/CK1uKLVJMkC/?utm_source=ig_web_copy_link','video.mp4')
