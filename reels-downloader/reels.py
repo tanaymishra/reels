@@ -46,5 +46,12 @@ def make_name(url):
     return 'video.mp4'
 
 
+def clean_name(name):
+    bad = '<>:"/\\|?*'
+    for ch in bad:
+        name = name.replace(ch, '_')
+    return name
+
+
 if __name__ == '__main__':
     download('https://www.instagram.com/p/CK1uKLVJMkC/?utm_source=ig_web_copy_link','video.mp4')
