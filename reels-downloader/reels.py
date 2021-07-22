@@ -65,5 +65,11 @@ def download_many(urls, folder='.'):
     return saved
 
 
+def download_from_file(path, folder='.'):
+    with open(path) as f:
+        urls = [line.strip() for line in f if line.strip()]
+    return download_many(urls, folder)
+
+
 if __name__ == '__main__':
     download('https://www.instagram.com/p/CK1uKLVJMkC/?utm_source=ig_web_copy_link','video.mp4')
