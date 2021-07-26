@@ -53,13 +53,17 @@ def clean_name(name):
     return name
 
 
-def download_many(urls, folder='.'):
+def download_many(urls, folder='.', skip=True):
     import os
     if folder and not os.path.exists(folder):
         os.makedirs(folder)
     saved = []
     for u in urls:
         path = os.path.join(folder, clean_name(make_name(u)))
+        if skip and os.path.exists(path):
+            print('already have ' + path)
+            saved.append(path)
+            continue
         download(u, path)
         saved.append(path)
     return saved
