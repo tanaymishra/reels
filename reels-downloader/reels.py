@@ -29,8 +29,7 @@ def download(url, params):
                     f.write(chunk)
                     if __name__ == '__main__':
                         print("Done")
-
-
+        return params
     except requests.exceptions.RequestException as e:
         raise RuntimeError(str(e))
 def shortcode(url):
