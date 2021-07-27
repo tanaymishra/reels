@@ -75,5 +75,16 @@ def download_from_file(path, folder='.'):
     return download_many(urls, folder)
 
 
+def download_retry(url, params, tries=3):
+    last = None
+    for i in range(tries):
+        try:
+            return download(url, params)
+        except Exception as e:
+            last = e
+            print('retry ' + str(i + 1))
+    raise last
+
+
 if __name__ == '__main__':
     download('https://www.instagram.com/p/CK1uKLVJMkC/?utm_source=ig_web_copy_link','video.mp4')
