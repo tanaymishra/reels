@@ -15,6 +15,8 @@ def main():
     elif args.url:
         name = args.output or make_name(args.url)
         download(args.url, os.path.join(args.folder, name))
+    else:
+        parser.print_help()
 
 
 if __name__ == '__main__':
