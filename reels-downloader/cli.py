@@ -16,10 +16,9 @@ def main():
     elif args.url:
         name = args.output or make_name(args.url)
         dest = os.path.join(args.folder, name)
-        if args.retry:
-            download_retry(args.url, dest)
-        else:
-            download(args.url, dest)
+        runner = download_retry if args.retry else download
+        saved = runner(args.url, dest)
+        print('saved ' + str(saved))
     else:
         parser.print_help()
 
