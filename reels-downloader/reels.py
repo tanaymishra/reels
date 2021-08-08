@@ -41,6 +41,10 @@ def shortcode(url):
     return url.split('/p/')[1].split('/')[0]
 
 
+def valid_url(url):
+    return 'instagram.com' in url and '/p/' in url
+
+
 def make_name(url):
     code = shortcode(url)
     if code:
