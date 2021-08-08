@@ -10,6 +10,7 @@ def main():
     parser.add_argument('-f', '--folder', default='.')
     parser.add_argument('-l', '--list')
     parser.add_argument('-r', '--retry', action='store_true')
+    parser.add_argument('--version', action='version', version='reels 1.0')
     args = parser.parse_args()
     if args.list:
         download_from_file(args.list, args.folder)
