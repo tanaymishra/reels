@@ -1,6 +1,6 @@
 import argparse
 import os
-from reels import download, make_name, download_from_file
+from reels import download, download_retry, make_name, download_from_file
 
 
 def main():
@@ -9,12 +9,17 @@ def main():
     parser.add_argument('-o', '--output')
     parser.add_argument('-f', '--folder', default='.')
     parser.add_argument('-l', '--list')
+    parser.add_argument('-r', '--retry', action='store_true')
     args = parser.parse_args()
     if args.list:
         download_from_file(args.list, args.folder)
     elif args.url:
         name = args.output or make_name(args.url)
-        download(args.url, os.path.join(args.folder, name))
+        dest = os.path.join(args.folder, name)
+        if args.retry:
+            download_retry(args.url, dest)
+        else:
+            download(args.url, dest)
     else:
         parser.print_help()
 
