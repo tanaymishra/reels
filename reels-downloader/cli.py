@@ -1,6 +1,6 @@
 import argparse
 import os
-from reels import download, download_retry, make_name, download_from_file
+from reels import download, download_retry, make_name, download_from_file, valid_url
 
 
 def main():
@@ -15,6 +15,8 @@ def main():
     if args.list:
         download_from_file(args.list, args.folder)
     elif args.url:
+        if not valid_url(args.url):
+            print('warning: does not look like a reel url')
         name = args.output or make_name(args.url)
         dest = os.path.join(args.folder, name)
         runner = download_retry if args.retry else download
