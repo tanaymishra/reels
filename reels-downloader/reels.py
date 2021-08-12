@@ -1,3 +1,4 @@
+import os
 import re
 import requests
 from requests_html import HTMLSession
@@ -24,13 +25,15 @@ def download(url, params):
         print('https://scontent-bom1-1.cdninstagram.com/v/'+final)
         r = requests.get('https://scontent-bom1-1.cdninstagram.com/v/'+final, stream=True)
         total = 0
-        with open(params, "wb") as f:
+        tmp = params + '.part'
+        with open(tmp, "wb") as f:
             for chunk in r.iter_content(chunk_size=1024 * 1024):
                 if chunk:
                     f.write(chunk)
                     total += len(chunk)
                     if __name__ == '__main__':
                         print("Done")
+        os.replace(tmp, params)
         print('got ' + str(total) + ' bytes')
         return params
     except requests.exceptions.RequestException as e:
