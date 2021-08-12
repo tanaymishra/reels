@@ -8,3 +8,4 @@
 <p>And that's it video will be downloaded..</p>
 <h2>Command line:-</h2>
 <p>Run :- "python cli.py 'link'"</p>
+<p>Batch :- "python cli.py -l urls.txt -f downloads"</p>
