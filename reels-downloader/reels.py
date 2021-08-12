@@ -67,7 +67,9 @@ def download_many(urls, folder='.', skip=True):
     if folder and not os.path.exists(folder):
         os.makedirs(folder)
     saved = []
-    for u in urls:
+    total = len(urls)
+    for i, u in enumerate(urls, 1):
+        print('[' + str(i) + '/' + str(total) + ']')
         path = os.path.join(folder, clean_name(make_name(u)))
         if skip and os.path.exists(path):
             print('already have ' + path)
