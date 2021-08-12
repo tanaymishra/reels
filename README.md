@@ -9,3 +9,4 @@
 <h2>Command line:-</h2>
 <p>Run :- "python cli.py 'link'"</p>
 <p>Batch :- "python cli.py -l urls.txt -f downloads"</p>
+<p>Retry :- add "-r" to try again if it fails</p>
