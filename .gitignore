@@ -3,3 +3,4 @@ __pycache__/
 *.mp4
 video.mp4
 downloads/
+*.part
