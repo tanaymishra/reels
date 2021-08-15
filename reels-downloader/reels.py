@@ -63,7 +63,6 @@ def clean_name(name):
 
 
 def download_many(urls, folder='.', skip=True):
-    import os
     if folder and not os.path.exists(folder):
         os.makedirs(folder)
     saved = []
@@ -83,6 +82,7 @@ def download_many(urls, folder='.', skip=True):
 def download_from_file(path, folder='.'):
     with open(path) as f:
         urls = [line.strip() for line in f if line.strip()]
+    print('found ' + str(len(urls)) + ' urls')
     return download_many(urls, folder)
 
 
