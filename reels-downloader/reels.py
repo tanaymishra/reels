@@ -80,6 +80,8 @@ def download_many(urls, folder='.', skip=True):
 
 
 def download_from_file(path, folder='.'):
+    if not os.path.exists(path):
+        raise FileNotFoundError(path)
     with open(path) as f:
         urls = [line.strip() for line in f if line.strip()]
     print('found ' + str(len(urls)) + ' urls')
