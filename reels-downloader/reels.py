@@ -3,6 +3,8 @@ import re
 import requests
 from requests_html import HTMLSession
 
+HEADERS = {'User-Agent': 'Mozilla/5.0'}
+
 
 def download(url, params):
     """Download an Instagram reel from url and save it to the given path."""
@@ -23,7 +25,7 @@ def download(url, params):
         response = session.get(url).text
         final= re.findall(r'content="https://scontent-bom1-1.cdninstagram.com/v/(.*?)[\"\']',response)[-1]
         print('https://scontent-bom1-1.cdninstagram.com/v/'+final)
-        r = requests.get('https://scontent-bom1-1.cdninstagram.com/v/'+final, stream=True)
+        r = requests.get('https://scontent-bom1-1.cdninstagram.com/v/'+final, stream=True, headers=HEADERS)
         total = 0
         tmp = params + '.part'
         with open(tmp, "wb") as f:
