@@ -10,3 +10,4 @@
 <p>Run :- "python cli.py 'link'"</p>
 <p>Batch :- "python cli.py -l urls.txt -f downloads"</p>
 <p>Retry :- add "-r" to try again if it fails</p>
+<p>Save as :- add "-o name.mp4" to choose the file</p>
