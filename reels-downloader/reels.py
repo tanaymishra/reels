@@ -25,7 +25,7 @@ def download(url, params):
         response = session.get(url).text
         final= re.findall(r'content="https://scontent-bom1-1.cdninstagram.com/v/(.*?)[\"\']',response)[-1]
         print('https://scontent-bom1-1.cdninstagram.com/v/'+final)
-        r = requests.get('https://scontent-bom1-1.cdninstagram.com/v/'+final, stream=True, headers=HEADERS)
+        r = requests.get('https://scontent-bom1-1.cdninstagram.com/v/'+final, stream=True, headers=HEADERS, timeout=30)
         total = 0
         tmp = params + '.part'
         with open(tmp, "wb") as f:
