@@ -7,7 +7,6 @@ HEADERS = {'User-Agent': 'Mozilla/5.0'}
 
 
 def download(url, params):
-    """Download an Instagram reel from url and save it to the given path."""
     try:
         params=str(params)
         verify=re.findall(r"(?i)\b((?:https?://|www\d{0,3}[.]|[a-z0-9.\-]+[.][a-z]{2,4}/)(?:[^\s()<>]+|\(([^\s()<>]+|(\([^\s()<>]+\)))*\))+(?:\(([^\s()<>]+|(\([^\s()<>]+\)))*\)|[^\s`!()\[\]{};:'\".,<>?«»“”‘’]))",url)
